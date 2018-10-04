@@ -1,6 +1,6 @@
 ---
 - name: Ensure bash, OpenSSl, and libssl are the latest versions
-  apt: name={{ item }} update_cache=true state=latest
+  yum: name={{ item }} update_cache=true state=latest
   with_items:
     - bash
     - openssl
@@ -9,7 +9,7 @@
   tags: packages
 
 - name: Install PostgreSQL
-  apt: name={{ item }} update_cache=true state=installed
+  yum: name={{ item }} update_cache=true state=installed
   with_items:
     - postgresql
     - postgresql-contrib
