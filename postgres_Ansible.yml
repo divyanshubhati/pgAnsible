@@ -4,15 +4,6 @@
  gather_facts: false
  become: true
  tasks:
-  - name: Ensure bash, OpenSSl, and libssl are the latest versions
-    yum: name={{ item }} update_cache=true state=latest
-    with_items:
-     - bash
-     - openssl
-     - libssl-dev
-     - libssl-doc
-    tags: packages
-
   - name: Install PostgreSQL
     yum: name={{ item }} update_cache=true state=installed
     with_items:
