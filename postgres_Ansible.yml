@@ -9,7 +9,7 @@
     with_items:
      - bash
      - openssl
-     - libssl-dev
+     - libssl-devel
      - libssl-doc
     tags: packages 
     
