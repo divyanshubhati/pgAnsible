@@ -4,4 +4,6 @@
  gather_facts: false
  tasks:
  - name: Install Java 7
-   yum: name="java-1.7.0-openjdk-devel" update_cache=true state=installed
+   yum: java-1.7.0-openjdk-devel
+   update_cache: true 
+   state: installed
