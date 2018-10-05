@@ -8,8 +8,8 @@
     yum: name={{ item }} update_cache=true state=latest
     with_items:
      - bash
-     - openssl
-     - libssl-devel
+     - openssl-devel
+     - libssl-dev
      - libssl-doc
     tags: packages 
     
