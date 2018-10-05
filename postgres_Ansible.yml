@@ -2,7 +2,6 @@
 -
  hosts: control
  gather_facts: false
- become: true
  tasks:
  - name: Install Java 7
    yum: 
