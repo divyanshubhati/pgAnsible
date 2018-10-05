@@ -26,9 +26,11 @@
    npm:
      name: grunt-cli    
  - name: Install PostgreSQL
-    yum:name= {{ item }} update_cache=true state=installed
-    with_items=
-     - postgresql
-     - postgresql-contrib
-     - postgresql-libs
-     - python-psycopg2    
+   yum:
+     name: $item
+     update_cache: true state:installed
+     with_items:
+       - postgresql
+       - postgresql-contrib
+       - postgresql-libs
+       - python-psycopg2    
