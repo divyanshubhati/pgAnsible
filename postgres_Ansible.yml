@@ -11,7 +11,8 @@
      update_cache: true 
  - name: Install nvm
    shell: curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
-   shell: export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm" [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+   shell: echo "export NVM_DIR=\"${XDG_CONFIG_HOME/:-$HOME/.}nvm\" [ -s \"$NVM_DIR/nvm.sh\" ] && \. \"$NVM_DIR/nvm.sh\"" >> ~/.bash_profile
+   shell: source ~/.bash_profile
  - name: Install node
    command: nvm install 7.7.4
  - name: Install npm
