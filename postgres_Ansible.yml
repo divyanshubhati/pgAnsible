@@ -9,8 +9,6 @@
     with_items:
      - bash
      - openssl-devel
-     - libssl-dev
-     - libssl-doc
     tags: packages 
     
   - name: Install PostgreSQL
