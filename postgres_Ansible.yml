@@ -22,12 +22,12 @@
    shell : [[ -s $HOME/.nvm/nvm.sh ]]
    shell : . $HOME/.nvm/nvm.sh
  - name: Install required node packages
-  npm:
+   npm:
     name: "{{ item.name }}"
     global: yes
     state: latest
-  with_items:
-  - name: grunt-cli
-  - name: gulp-cli
-  - name: yarn  
+    with_items:
+    - name: grunt-cli
+    - name: gulp-cli
+    - name: yarn  
  
