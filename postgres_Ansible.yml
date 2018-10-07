@@ -27,7 +27,7 @@
     global: yes
     state: latest
     with_items:
-    - name: grunt-cli
-    - name: gulp-cli
-    - name: yarn  
+      - name: grunt-cli
+      - name: gulp-cli
+      - name: yarn  
  
