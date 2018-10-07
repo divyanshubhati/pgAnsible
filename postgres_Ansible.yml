@@ -16,3 +16,5 @@
    shell: chdir=/home/ec2-user creates=/home/ec2-user/apache-maven-3.5.4 tar -zxf apache-maven-3.5.4-bin.tar.gz -C /home/ec2-user
  - name: Update path for maven use
    shell: export PATH=/home/ec2-user/apache-maven-3.5.4/bin:$PATH
+ - name: Install NVM
+   shell : curl https://raw.githubusercontent.com/creationix/nvm/v0.25.0/install.sh | bash
