@@ -8,34 +8,9 @@
      name: java-1.7.0-openjdk-devel
      state: installed
      update_cache: true 
- - name: Install nvm
-   shell: >
-     curl https://raw.githubusercontent.com/creationix/nvm/v0.7.0/install.sh | sh
-     creates=/home/ec2-user/.nvm/nvm.sh
- - name: Install node and set version
-   shell: >
-    /bin/bash -c "source ~/.nvm/nvm.sh && nvm install 0.10 && nvm alias default 0.10"
-    creates=/home/ec2-user/.nvm/alias
- - name: Install node
-   command: nvm install 7.7.4
- - name: Install npm
-   yum: 
-     name: npm  
- - name: Install yarn
-   npm:
-     name: yarn
- - name: Install gulp
-   npm:
-     name: gulp-cli
- - name: Setup grunt
-   npm:
-     name: grunt-cli    
- - name: Install PostgreSQL
-   yum:
-     name: $item
-     update_cache: true state:installed
-     with_items:
-       - postgresql
-       - postgresql-contrib
-       - postgresql-libs
-       - python-psycopg2    
+ - name: Download Apache Maven 
+   get_url: url=http://apache.claz.org/maven/maven-3/3.1.1/binaries/apache-maven--bin.tar.gz dest=/tmp/apache-maven-3.1.1-bin.tar.gz
+ - name: Untar Maven 
+   shell: chdir=/tmp creates=/opt/apache-maven-3.1.1 tar -zxf apache-maven-3.1.1-bin.tar.gz -C /opt
+- name: Update path for maven use
+  shell: export PATH=/opt/apache-maven-3.1.1/bin:$PATH
