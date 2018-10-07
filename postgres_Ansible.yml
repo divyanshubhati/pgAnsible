@@ -20,12 +20,14 @@
    shell : curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
  - name: Set NVM path
    shell : [[ -s $HOME/.nvm/nvm.sh ]]
-   shell : . $HOME/.nvm/nvm.sh  
- - name: Install yarn
-   shell: npm install -g yarn
- - name: Install gulp
-   npm:
-     name: gulp-cli
- - name: Setup grunt
-   npm:
-     name: grunt-cli      
+   shell : . $HOME/.nvm/nvm.sh
+ - name: Install required node packages
+  npm:
+    name: "{{ item.name }}"
+    global: yes
+    state: latest
+  with_items:
+  - name: grunt-cli
+  - name: gulp-cli
+  - name: yarn  
+ 
