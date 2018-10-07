@@ -26,7 +26,7 @@
     name: $items
     global: yes
     state: latest
-    with_items:
+    items:
     - name: grunt-cli
     - name: gulp-cli
     - name: yarn  
