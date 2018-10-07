@@ -21,8 +21,18 @@
  - name: Set NVM path
    shell : [[ -s $HOME/.nvm/nvm.sh ]]
    shell : . $HOME/.nvm/nvm.sh
- - name: Install required node packages
+ - name: Install yarn
    npm:
     name: yarn
     global: yes
     state: latest
+ - name: Install gulp
+   npm:
+    name: gulp-cli
+    global: yes
+    state: latest
+ - name: Install grunt
+   npm:
+    name: grunt-cli
+    global: yes
+    state: latest    
