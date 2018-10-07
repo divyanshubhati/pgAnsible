@@ -13,6 +13,6 @@
      url: http://mirrors.estointernet.in/apache/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz 
      dest: /home/ec2-user
  - name: Untar Maven 
-   shell: chdir=/home/ec2-user creates=/home/ec2-user/apache-maven-3.5.4 tar -zxf apache-maven-3.5.4-bin.tar.gz -C /opt
+   shell: chdir=/home/ec2-user creates=/home/ec2-user/apache-maven-3.5.4 tar -zxf apache-maven-3.5.4-bin.tar.gz -C /home/ec2-user
  - name: Update path for maven use
    shell: export PATH=/home/ec2-user/apache-maven-3.5.4/bin:$PATH
