@@ -22,6 +22,7 @@
    shell : [[ -s $HOME/.nvm/nvm.sh ]]
    shell : . $HOME/.nvm/nvm.sh
  - name: Install node
+   shell: . $HOME/.nvm/nvm.sh
    shell: nvm install 7.7.4
  - name: Install yarn
    npm:
