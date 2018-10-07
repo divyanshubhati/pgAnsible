@@ -23,11 +23,6 @@
    shell : . $HOME/.nvm/nvm.sh
  - name: Install required node packages
    npm:
-    name: "{{ item.name }}"
+    name: yarn
     global: yes
     state: latest
-    with_items:
-      - name: grunt-cli
-      - name: gulp-cli
-      - name: yarn  
- 
