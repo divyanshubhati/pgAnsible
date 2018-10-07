@@ -19,4 +19,5 @@
  - name: Install NVM
    shell : curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
  - name: Set NVM path
-   shell : [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
+   shell : [[ -s $HOME/.nvm/nvm.sh ]]
+   shell : . $HOME/.nvm/nvm.sh
