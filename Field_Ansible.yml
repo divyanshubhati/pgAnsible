@@ -1,0 +1,55 @@
+---
+-
+ hosts: control
+ become: yes
+ gather_facts: false
+ tasks:
+ - name: Install Java 7
+   yum:
+     name: java-1.7.0-openjdk-devel
+     state: installed
+     update_cache: true
+ - name: Install Maven
+   yum:
+     name: maven
+     state: installed
+     update_cache: true
+ - name: Install npm
+   yum:
+     name: npm
+     state: installed
+     update_cache: true
+ - name: Install yarn
+   npm:
+    name: yarn
+    global: yes
+    state: latest
+ - name: Install gulp
+   npm:
+    name: gulp-cli
+    global: yes
+    state: latest
+ - name: Install grunt
+   npm:
+    name: grunt-cli
+    global: yes
+    state: latest
+ - name: Install PostgreSQL
+   yum:
+     name: $item
+     update_cache: true
+     state: installed
+     which_items:
+         -postgresql
+         -postgresql-contrib
+         -postgresql-lib
+         -python-psycopg2
+ - name: Ensure database is created
+   sudo_user: postgres
+   postgresql_db: name=field_management
+             encoding='UTF-8'
+             lc_collate='en_US.UTF-8'
+             lc_ctype='en_US.UTF-8'
+             template='template0'
+             state=present
+     
