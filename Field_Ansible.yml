@@ -46,7 +46,7 @@
      state: installed      
  - name: Install Postgresql-lib
    yum: 
-     name: postgresql-lib
+     name: postgresql-libs
      update_cache: true
      state: installed      
  - name: Install Python-psycopg2
