@@ -54,6 +54,11 @@
      name: python-psycopg2
      update_cache: true
      state: installed
+ - name: Ensure the PostgreSQL service is running
+   service: 
+      name: postgresql 
+      state: started
+      enabled: yes    
  - name: Ensure database is created
    sudo_user: postgres
    postgresql_db: name=field_management
