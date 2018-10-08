@@ -39,7 +39,7 @@
      name: $item
      update_cache: true
      state: installed
-     which_items:
+     items:
          -postgresql
          -postgresql-contrib
          -postgresql-lib
