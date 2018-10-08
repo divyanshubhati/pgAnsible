@@ -36,10 +36,10 @@
     state: latest
  - name: Install PostgreSQL
    yum:
-     name: $item
+     name: {{item}}
      update_cache: true
      state: installed
-     items:
+     which_items:
          -postgresql
          -postgresql-contrib
          -postgresql-lib
