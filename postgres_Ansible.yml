@@ -21,6 +21,8 @@
  - name: Set NVM path
    shell : [[ -s $HOME/.nvm/nvm.sh ]]
    shell : . $HOME/.nvm/nvm.sh
+ - name: Upgrade Node to 7.4.4
+   shell : nvm install 7.4.4  
  - name: Install yarn
    npm:
     name: yarn
