@@ -43,7 +43,12 @@
    yum: 
      name: postgresql-contrib
      update_cache: true
-     state: installed      
+     state: installed
+ - name: Install postgresql-server
+   yum:
+     name: postgresql-server
+     update_cache: true
+     state: installed
  - name: Install Postgresql-lib
    yum: 
      name: postgresql-libs
@@ -54,6 +59,7 @@
      name: python-psycopg2
      update_cache: true
      state: installed
+     
  - name: Ensure the PostgreSQL service is running
    service: 
       name: postgresql 
