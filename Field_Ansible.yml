@@ -14,6 +14,28 @@
      name: maven
      state: installed
      update_cache: true
+
+ - name: Install Postgresql repository RPM
+   yum: 
+     name: https://download.postgresql.org/pub/repos/yum/9.4/redhat/rhel-7-x86_64/pgdg-oraclelinux94-9.4-3.noarch.rpm
+     update_cache: true
+     state: installed 
+ - name: Install Postgresql client packages
+   yum: 
+     name: postgresql94
+     update_cache: true
+     state: installed
+ - name: Initialize postgres db
+   shell: /usr/pgsql-9.4/bin/postgresql94-setup initdb
+ - name: Enable Postgres automatic start
+   shell: systemctl enable postgresql-9.4 
+ - name: Starting postgres service
+   shell: systemctl start postgresql-9.4
+ - name: Ensure the PostgreSQL service is running
+   service: 
+      name: postgresql 
+      state: started
+      enabled: yes         
  - name: Install npm
    yum:
      name: npm
@@ -34,43 +56,3 @@
     name: grunt-cli
     global: yes
     state: latest
- - name: Install Postgresql
-   yum: 
-     name: postgresql
-     update_cache: true
-     state: installed 
- - name: Install Postgresql-contrib
-   yum: 
-     name: postgresql-contrib
-     update_cache: true
-     state: installed
- - name: Install postgresql-server
-   yum:
-     name: postgresql-server
-     update_cache: true
-     state: installed
- - name: Install Postgresql-lib
-   yum: 
-     name: postgresql-libs
-     update_cache: true
-     state: installed      
- - name: Install Python-psycopg2
-   yum:
-     name: python-psycopg2
-     update_cache: true
-     state: installed
-     
- - name: Ensure the PostgreSQL service is running
-   service: 
-      name: postgresql 
-      state: started
-      enabled: yes    
- - name: Ensure database is created
-   sudo_user: postgres
-   postgresql_db: name=field_management
-             encoding='UTF-8'
-             lc_collate='en_US.UTF-8'
-             lc_ctype='en_US.UTF-8'
-             template='template0'
-             state=present
-     
