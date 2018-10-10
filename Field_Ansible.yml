@@ -40,7 +40,13 @@
    service: 
       name: postgresql-9.4 
       state: started
-      enabled: yes         
+      enabled: yes 
+ - name: Create postgres database field_management
+   become: true
+   become_user: postgres
+   postgresql_db:
+      name: field_management
+      
  - name: Install npm
    yum:
      name: npm
