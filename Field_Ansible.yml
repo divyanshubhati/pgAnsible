@@ -47,6 +47,8 @@
    postgresql_db:
       name: field_management
  - name: Create user postgres
+   become: true
+   become_user: postgres
    postgresql_user:
       db: field_management
       name: postgres
