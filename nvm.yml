@@ -20,7 +20,7 @@
  - name: Setting Environment Variables for nvm
    become_user: dbhati   
    shell: [ -s "$NVM_DIR/nvm.sh" ]
- - name:Load nvm
+ - name: Load nvm
    become_user: dbhati      
    shell: \. "$NVM_DIR/nvm.sh" # This loads nvm 
       
