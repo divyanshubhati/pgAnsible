@@ -46,6 +46,11 @@
    become_user: postgres
    postgresql_db:
       name: field_management
+ - name: Create user postgres
+   postgresql_user:
+      db: field_management
+      name: postgres
+      password: postgres     
       
  - name: Install npm
    yum:
