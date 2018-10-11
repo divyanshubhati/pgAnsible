@@ -70,13 +70,13 @@
  #- name: Run nvm.sh
   # shell: cd $HOME/Downloads
   # shell: sh nvm.sh
- - name: Install nvm
-   shell: >
-     curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | sh
-     creates=/$HOME/.nvm/nvm.sh 
- - name: Setting Environment Variables for nvm
-   shell: export NVM_DIR= $HOME/.nvm
-   shell: export PATH= $HOME/.nvm
+ #- name: Install nvm
+ #  shell: >
+  #   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | sh
+  #   creates=/$HOME/.nvm/nvm.sh 
+# - name: Setting Environment Variables for nvm
+ #  shell: export NVM_DIR= $HOME/.nvm
+  # shell: export PATH= $HOME/.nvm
  - name: Install yarn
    npm:
     name: yarn
