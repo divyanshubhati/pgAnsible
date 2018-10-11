@@ -14,7 +14,19 @@
      name: maven
      state: installed
      update_cache: true
-
+ - name: Install Apache HTTP Server
+   yum:
+     name: httpd
+     state: installed
+     update_cache: true     
+ - name : Copy Maven settings
+   become_user: dbhati
+   copy:
+     src: /settings.xml
+     dest: /$HOME/.m2/settings.xml
+     owner: foo
+     group: foo
+     mode: 0644 
  - name: Install Postgresql repository RPM
    yum: 
      name: https://download.postgresql.org/pub/repos/yum/9.4/redhat/rhel-7-x86_64/pgdg-oraclelinux94-9.4-3.noarch.rpm
@@ -58,11 +70,7 @@
       name: npm
       state: installed
       update_cache: true     
- - name: Install Apache HTTP Server
-   yum:
-      name: httpd
-      state: installed
-      update_cache: true
+
  #- name: Download nvm.sh
  #  get_url:
  #    url: https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh
