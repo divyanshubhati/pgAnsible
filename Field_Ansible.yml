@@ -19,14 +19,12 @@
      name: httpd
      state: installed
      update_cache: true     
- - name : Copy Maven settings
-   become_user: dbhati
-   copy:
-     src: /settings.xml
-     dest: /$HOME/.m2/settings.xml
-     owner: foo
-     group: foo
-     mode: 0644 
+# - name : Copy Maven settings
+#   become_user: dbhati
+#   copy:
+#     src: /settings.xml
+#     dest: /$HOME/.m2/settings.xml
+
  - name: Install Postgresql repository RPM
    yum: 
      name: https://download.postgresql.org/pub/repos/yum/9.4/redhat/rhel-7-x86_64/pgdg-oraclelinux94-9.4-3.noarch.rpm
@@ -86,6 +84,27 @@
 # - name: Setting Environment Variables for nvm
  #  shell: export NVM_DIR= $HOME/.nvm
   # shell: export PATH= $HOME/.nvm
+ - name:install nvm 
+   shell: curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+   args: 
+     chdir: ~/     
+ - name: Add lines to .bash_profile
+   shell: echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.bash_profile
+   args:
+     chdir: ~/
+ - name: Add lines to .bash_profile
+   shell: echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> ~/.bash_profile
+   args:
+     chdir: ~/
+ - name: Add lines to .bash_profile
+   shell: echo '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"' >> ~/.bash_profile
+   args:
+     chdir: ~/
+ - name: Installing gems
+   command: nvm install 7.7.4
+   args:
+     chdir: ~/   
+     
  - name: Install yarn
    npm:
     name: yarn
