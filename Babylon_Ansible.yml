@@ -1,0 +1,11 @@
+---
+-
+ hosts: control
+ become: yes
+ gather_facts: false
+ tasks:
+ - name: Install Java 8
+   yum:
+     name: java-1.8.0-openjdk-devel
+     state: installed
+     update_cache: true
