@@ -58,13 +58,14 @@
    become_user: postgres
    postgresql_db:
       name: field_management
- - name: Create user postgres
+ - name: Create user postgres and role
    become: true
    become_user: postgres
    postgresql_user:
       db: field_management
       name: postgres
-      password: postgres     
+      password: postgres 
+      role_attr_flags: CREATEROLE,LOGIN
  - name: Install npm
    yum:
       name: npm
