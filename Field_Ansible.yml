@@ -84,7 +84,7 @@
 # - name: Setting Environment Variables for nvm
  #  shell: export NVM_DIR= $HOME/.nvm
   # shell: export PATH= $HOME/.nvm
- - name:install nvm 
+ - name: install nvm 
    shell: curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
    args: 
      chdir: ~/     
