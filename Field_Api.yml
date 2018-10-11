@@ -1,0 +1,19 @@
+---
+-
+ hosts: control
+ become: yes
+ gather_facts: false
+ tasks:
+ - name: Install Java 7
+   yum:
+     name: java-1.7.0-openjdk-devel
+     state: installed
+     update_cache: true
+ - name: Install npm
+   yum:
+     name: npm
+     state: installed
+     update_cache: true
+  #Add nvm here 
+  #Add node here
+  
