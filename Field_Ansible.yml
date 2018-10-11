@@ -53,12 +53,16 @@
       db: field_management
       name: postgres
       password: postgres     
-      
  - name: Install npm
    yum:
-     name: npm
-     state: installed
-     update_cache: true
+      name: npm
+      state: installed
+      update_cache: true     
+ - name: Install Apache HTTP Server
+   yum:
+      name: httpd
+      state: installed
+      update_cache: true
  #- name: Download nvm.sh
  #  get_url:
  #    url: https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh
